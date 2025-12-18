@@ -4,79 +4,162 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chris Huang | Layout Verification Engineer</title>
-  <meta name="description" content="Chris Huang, Layout Verification Engineer specializing in LVS, RC Extraction, and Parasitic Analysis." />
+  <meta name="description" content="Chris Huang, Layout Verification Engineer specializing in LVS, RC Extraction, Parasitic Analysis, and Semiconductor Design Verification." />
+
+  <!-- Simple Analytics: GoatCounter -->
+<script data-goatcounter="https://chrishuang.goatcounter.com/count"
+        async src="https://gc.zgo.at/count.js"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-    header, section, footer { padding: 24px; max-width: 960px; margin: auto; }
-    header { background: #0f172a; color: #fff; }
-    h1, h2 { margin-top: 0; }
-    section { border-bottom: 1px solid #e5e7eb; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; margin: 0; line-height: 1.7; background: #f8fafc; }
+    header, section, footer { max-width: 1000px; margin: auto; padding: 32px 24px; }
+    header { background: #0f172a; color: #ffffff; }
+    h1 { font-size: 2.2rem; margin-bottom: 0.3em; }
+    h2 { border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; }
+    h3 { margin-bottom: 4px; }
+    section { background: #ffffff; margin-top: 16px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
     ul { padding-left: 20px; }
-    .tag { display: inline-block; background: #e5e7eb; padding: 4px 8px; margin: 4px; border-radius: 6px; }
+    li { margin-bottom: 6px; }
+    .meta { color: #64748b; }
+    .tag { display: inline-block; background: #e5e7eb; padding: 6px 10px; margin: 4px 6px 4px 0; border-radius: 999px; font-size: 0.85rem; }
+    .lang-switch { text-align: right; font-size: 0.9rem; }
+    .lang-switch button { background: none; border: none; cursor: pointer; margin-left: 8px; color: #2563eb; }
+    .en { display: none; }
+    footer { text-align: center; color: #64748b; font-size: 0.85rem; }
   </style>
+
+  <script>
+    function switchLang(lang) {
+      document.querySelectorAll('.zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
+      document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+    }
+  </script>
 </head>
 <body>
 
 <header>
-  <h1>Chris Huang (黃薪瑋)</h1>
-  <p>Layout Verification Engineer | Semiconductor Industry</p>
-  <p>Email: my890119@gmail.com | GitHub: chrishuang</p>
-</header>
+  <div class="lang-switch">
+    <button onclick="switchLang('zh')">中文</button> | 
+    <button onclick="switchLang('en')">English</button>
+  </div>
 
-<section>
-  <h2>Professional Summary</h2>
-  <p>
-    I am a Layout Verification Engineer specializing in layout verification, RC extraction, and parasitic analysis.
-    I am proficient with Calibre LVS, PVS LVS, StarRC, QuantusRC, and CalibreRC (xRC). I focus on delivering
-    accurate verification results and optimizing signal integrity and timing performance through cross-functional collaboration.
-  </p>
+  <div class="zh">
+    <h1>黃薪瑋 Chris Huang</h1>
+    <p>佈局驗證工程師｜半導體製程與設計驗證</p>
+    <p>Email: my890119@gmail.com ｜ GitHub: chrishuang</p>
+  </div>
+
+  <div class="en">
+    <p>
+      I am a Layout Verification Engineer at Vanguard International Semiconductor Corporation, with hands-on experience in
+      physical verification, parasitic extraction, and methodology improvement for advanced semiconductor processes.
+      My expertise includes Calibre LVS, PVS LVS, StarRC, QuantusRC, and CalibreRC (xRC), enabling accurate layout-to-schematic
+      verification and reliable RC modeling for timing and signal integrity analysis.
+    </p>
+    <p>
+      Beyond execution-level verification, I actively contribute to workflow optimization and automation.
+      I have successfully delivered RC extraction automation that significantly reduced turnaround time and improved
+      result consistency across projects. I work closely with design, process, and CAD teams to ensure verification
+      quality and scalability, and I continuously seek opportunities to evolve toward methodology and technical leadership roles.
+    </p>
+  </div>
 </section>
 
 <section>
   <h2>Work Experience</h2>
-  <h3>Vanguard International Semiconductor Corporation</h3>
-  <p><strong>Layout Verification Engineer</strong> | Oct 2024 – Present</p>
-  <ul>
-    <li>Performed LVS verification based on TD and customer requirements using Calibre and PVS.</li>
-    <li>Conducted parasitic RC extraction with StarRC, QuantusRC, and CalibreRC.</li>
-    <li>Assessed parasitic impact on signal integrity and timing accuracy.</li>
-  </ul>
 
-  <h3>National Taipei University of Technology</h3>
-  <p><strong>Research Assistant (Master Level)</strong> | Sep 2022 – Jul 2024</p>
-  <ul>
-    <li>Developed and optimized resource allocation algorithms using Python.</li>
-    <li>Implemented MEC experiments integrating communication and edge computing.</li>
-    <li>Maintained laboratory website using HTML, JavaScript, and CSS.</li>
-  </ul>
+  <div class="zh">
+    <h3>世界先進積體電路股份有限公司</h3>
+    <p class="meta">佈局驗證工程師 ｜ 2024/10 – 至今 ｜ 新竹</p>
+    <ul>
+      <li>依據 TD 與客戶規格執行 LVS 驗證，確保 layout 與 schematic 一致性。</li>
+      <li>使用 StarRC、QuantusRC、CalibreRC 進行寄生 RC 提取，支援時序與訊號完整性分析。</li>
+      <li>分析寄生效應對設計品質的影響，並回饋設計與方法學團隊。</li>
+    </ul>
+
+    <h3>國立臺北科技大學 電子工程研究所</h3>
+    <p class="meta">碩士級研究助理 ｜ 2022/09 – 2024/07</p>
+    <ul>
+      <li>執行國科會與教育部研究計畫，研究 MEC 與通訊資源最佳化。</li>
+      <li>以 Python 實作與優化演算法，提升系統效能與穩定度。</li>
+      <li>維護實驗室網站（HTML / CSS / JavaScript）。</li>
+    </ul>
+  </div>
+
+  <div class="en">
+    <p>
+      I am a Layout Verification Engineer at Vanguard International Semiconductor Corporation, with hands-on experience in
+      physical verification, parasitic extraction, and methodology improvement for advanced semiconductor processes.
+      My expertise includes Calibre LVS, PVS LVS, StarRC, QuantusRC, and CalibreRC (xRC), enabling accurate layout-to-schematic
+      verification and reliable RC modeling for timing and signal integrity analysis.
+    </p>
+    <p>
+      Beyond execution-level verification, I actively contribute to workflow optimization and automation.
+      I have successfully delivered RC extraction automation that significantly reduced turnaround time and improved
+      result consistency across projects. I work closely with design, process, and CAD teams to ensure verification
+      quality and scalability, and I continuously seek opportunities to evolve toward methodology and technical leadership roles.
+    </p>
+  </div>
 </section>
 
 <section>
-  <h2>Key Project & Achievements</h2>
-  <ul>
-    <li>
-      <strong>RC Extraction Automation Project</strong> (2025)
-      <ul>
-        <li>Reduced RC build time by approximately 60% through automation.</li>
-        <li>Standardized RC tech file generation workflows.</li>
-        <li>Awarded VIS New Star Award and One Shot Award (Q4 2025).</li>
-      </ul>
-    </li>
-    <li>
-      <strong>Master’s Thesis</strong> – Deep Reinforcement Learning for Wireless-Powered MEC Networks
-      <ul>
-        <li>Improved video quality by 1.4628 dB PSNR over baseline methods.</li>
-        <li>Optimized weighted computation rate and video quality stability.</li>
-      </ul>
-    </li>
-  </ul>
+  <h2>Key Projects & Achievements</h2>
+  <div style="margin-bottom:16px">
+    <img src="images/rc_automation_flow.png" alt="RC Automation Flow" style="max-width:100%; border-radius:8px;" />
+    <p class="meta">Example: RC extraction automation workflow (replace with your own diagram)</p>
+  </div>
+
+  <div class="zh">
+    <ul>
+      <li><strong>RC Extraction Automation Project</strong>
+        <ul>
+          <li>建立統一的 RC tech file 與 pattern script。</li>
+          <li>透過自動化將 RC 建置時間降低約 60%。</li>
+          <li>減少人為操作錯誤並提升跨專案可重用性。</li>
+          <li>榮獲 VIS 內部 RD 研發競賽 New Star Award 與 One Shot Award（Q4 2025）。</li>
+        </ul>
+      </li>
+      <li><strong>碩士論文：Wireless-Powered MEC Networks</strong>
+        <ul>
+          <li>以深度強化學習優化卸載與通訊資源配置。</li>
+          <li>PSNR 較控制組提升 1.4628 dB，改善影像品質與穩定度。</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="en">
+    <p>
+      I am a Layout Verification Engineer at Vanguard International Semiconductor Corporation, with hands-on experience in
+      physical verification, parasitic extraction, and methodology improvement for advanced semiconductor processes.
+      My expertise includes Calibre LVS, PVS LVS, StarRC, QuantusRC, and CalibreRC (xRC), enabling accurate layout-to-schematic
+      verification and reliable RC modeling for timing and signal integrity analysis.
+    </p>
+    <p>
+      Beyond execution-level verification, I actively contribute to workflow optimization and automation.
+      I have successfully delivered RC extraction automation that significantly reduced turnaround time and improved
+      result consistency across projects. I work closely with design, process, and CAD teams to ensure verification
+      quality and scalability, and I continuously seek opportunities to evolve toward methodology and technical leadership roles.
+    </p>
+  </div>
 </section>
 
 <section>
   <h2>Education</h2>
-  <ul>
-    <li><strong>M.S. in Electronic Engineering</strong>, National Taipei University of Technology (2022–2024)</li>
-    <li><strong>B.S. in Electrical Engineering</strong>, National Ilan University (2018–2022)</li>
+  <ul class="zh">
+    <li>國立臺北科技大學 電子工程研究所 碩士（2022–2024）</li>
+    <li>國立宜蘭大學 電機工程學系 學士（2018–2022）</li>
+  </ul>
+  <ul class="en">
+    <li>M.S. in Electronic Engineering, National Taipei University of Technology (2022–2024)</li>
+    <li>B.S. in Electrical Engineering, National Ilan University (2018–2022)</li>
   </ul>
 </section>
 
@@ -90,13 +173,17 @@
     <span class="tag">CalibreRC (xRC)</span>
     <span class="tag">Python</span>
     <span class="tag">Verilog-A</span>
-    <span class="tag">HTML/CSS/JS</span>
+    <span class="tag">HTML / CSS / JavaScript</span>
   </div>
 </section>
 
 <footer>
   <p>© 2025 Chris Huang. All rights reserved.</p>
 </footer>
+
+<script>
+  switchLang('zh');
+</script>
 
 </body>
 </html>
