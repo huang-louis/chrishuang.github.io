@@ -145,44 +145,104 @@
 <section>
   <h2>Key Projects & Awards</h2>
 
-  <!-- 圖片展示區（比賽 / 得獎 / 專案） -->
-  <div class="gallery">
-    <!-- 將圖片放在 images/ 資料夾，檔名自行調整 -->
-    <div>
-      <img src="images/award_vis_new_star.jpg" alt="VIS New Star Award" />
-      <div class="caption">VIS R&D Competition – New Star Award (Q4 2025)</div>
-    </div>
-    <div>
-      <img src="images/award_one_shot.jpg" alt="VIS One Shot Award" />
-      <div class="caption">VIS R&D Competition – One Shot Award</div>
-    </div>
-    <div>
-      <img src="images/rc_automation_flow.png" alt="RC Automation Flow" />
-      <div class="caption">RC Extraction Automation Workflow</div>
-    </div>
-  </div>
-
   <div class="zh">
+    <img src="images/award_vis_new_star.jpg" alt="VIS New Star Award" style="max-width:420px; border-radius:10px; margin:0 0 16px 0;" />
+    <h3>RC Extraction Automation Workflow</h3>
+    <p class="meta">Python Automation｜EDA Flow Optimization｜Methodology Development</p>
     <ul>
-      <li><strong>RC Extraction Automation Project</strong>
-        <ul>
-          <li>建立統一 RC tech file 與 extraction pattern。</li>
-          <li>自動化後 RC 建置時間降低約 60%。</li>
-          <li>榮獲 VIS 內部研發競賽 New Star Award 與 One Shot Award。</li>
-        </ul>
-      </li>
+      <li>主導設計並實作以 Python 為核心之 RC Extraction 自動化框架，支援多製程、多專案情境下之寄生參數建置需求，建立可重複使用且具延展性的流程基礎。</li>
+      <li>於流程前段自動擷取設計與製程相關資料，進行欄位對齊、單位轉換與一致化處理，形成結構化且可版本控管之標準化資料模型，作為後續流程的單一可信來源（Single Source of Truth）。</li>
+      <li>依據 StarRC、QuantusRC 與 CalibreRC 等 EDA 工具之 Technology File 規範，由 Python 程式自動生成對應設定檔，系統性消除人工撰寫與跨工具轉換所衍生之設定誤差。</li>
+      <li>該自動化流程顯著提升 RC 建置效率、結果一致性與方法學穩定度，並有效降低專案交付風險與人為操作依賴。</li>
+    </ul>
+    <p class="meta"><strong>Impact Summary</strong></p>
+<ul>
+  <li><strong>RC 建置時間 ↓ 60%</strong></li>
+  <li><strong>文件錯誤率 ↓ 99%</strong></li>
+</ul>
+
+    <h3>VIS R&D Competition – New Star Award</h3>
+    <p class="meta">Q4 2025｜Vanguard International Semiconductor Corporation</p>
+    <img src="images/award_vis_new_star.jpg" alt="VIS New Star Award" style="max-width:420px; border-radius:10px; margin:16px 0;" />
+    <ul>
+      <li>以 RC Extraction 自動化流程為核心成果，參與公司內部研發競賽。</li>
+      <li>因流程優化對部門效率與方法學成熟度之實質貢獻，獲頒 New Star Award。</li>
     </ul>
   </div>
 
   <div class="en">
+    <img src="images/award_vis_new_star.jpg" alt="VIS New Star Award" style="max-width:420px; border-radius:10px; margin:0 0 16px 0;" />
+    <h3>RC Extraction Automation Workflow</h3>
+    <p class="meta">Python Automation | EDA Flow Optimization | Methodology Development</p>
     <ul>
-      <li><strong>RC Extraction Automation Project</strong>
-        <ul>
-          <li>Standardized RC tech files and extraction workflows.</li>
-          <li>Reduced RC build time by ~60% through automation.</li>
-          <li>Recognized with VIS New Star Award and One Shot Award.</li>
-        </ul>
-      </li>
+      <li>Designed and implemented a Python-based automation framework for RC extraction across multiple processes and projects.</li>
+      <li>Automatically collected and standardized design and process data, including field alignment and unit normalization.</li>
+      <li>Generated EDA-compliant technology files for StarRC, QuantusRC, and CalibreRC directly from standardized datasets.</li>
+      <li>Reduced overall RC build turnaround time by approximately <strong>60%</strong> through end-to-end automation.</li>
+      <li>Increased Technology File and configuration accuracy to over <strong>99%</strong>, significantly minimizing manual setup errors and rework.</li>
+      <li>Established a scalable and maintainable methodology that improves result consistency across processes and projects.</li>
+    </ul>
+
+    <h3>VIS R&D Competition – New Star Award</h3>
+    <p class="meta">Q4 2025 | Vanguard International Semiconductor Corporation</p>
+    <img src="images/award_vis_new_star.jpg" alt="VIS New Star Award" style="max-width:420px; border-radius:10px; margin:16px 0;" />
+    <ul>
+      <li>Recognized for tangible contributions to RC extraction automation and methodology enhancement.</li>
+      <li>Awarded the New Star Award in the internal VIS R&D Innovation Competition.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Academic Projects & Research Highlights</h2>
+
+  <!-- ===== Research Highlight: Master Thesis ===== -->
+  <div class="zh">
+    <h3>碩士論文｜Wireless-Powered Video Visual Processing MEC Networks</h3>
+    <p class="meta">系統最佳化｜深度強化學習｜跨層資源配置</p>
+    <img src="images/thesis_mec_architecture.png" alt="MEC System Architecture" style="max-width:100%; border-radius:10px; margin:16px 0;" />
+    <ul>
+      <li>建構整合型 MEC 系統模型，聯合最佳化通道配置、計算資源與影片編碼參數。</li>
+      <li>提出 DQN 與 Double DQN 決策架構，分別處理任務卸載與通道分配問題。</li>
+      <li>透過品質感知損失函數與後處理機制，兼顧影片品質與系統穩定性。</li>
+      <li>相較對照方法，影片品質最高提升 <strong>1.46 dB PSNR</strong>，並消除通道資源飢餓現象。</li>
+    </ul>
+  </div>
+
+  <div class="en">
+    <h3>Master Thesis | Wireless-Powered Video Visual Processing MEC Networks</h3>
+    <p class="meta">System Optimization | Deep Reinforcement Learning | Cross-layer Resource Allocation</p>
+    <img src="images/thesis_mec_architecture.png" alt="MEC System Architecture" style="max-width:100%; border-radius:10px; margin:16px 0;" />
+    <ul>
+      <li>Developed an integrated MEC system model for joint optimization of communication, computation, and video encoding.</li>
+      <li>Applied DQN and Double DQN for task offloading and channel allocation decisions.</li>
+      <li>Designed quality-aware objective functions to balance latency and video quality.</li>
+      <li>Achieved up to <strong>1.46 dB PSNR improvement</strong> while eliminating channel starvation.</li>
+    </ul>
+  </div>
+
+  <hr style="margin:32px 0" />
+
+  <!-- ===== Academic Project: FMCW Radar ===== -->
+  <div class="zh">
+    <h3>學士專題｜基於 FMCW 雷達之生命徵象量測系統</h3>
+    <p class="meta">毫米波雷達｜生命徵象感測｜系統整合</p>
+    <img src="images/fmcw_radar_architecture.png" alt="FMCW Radar Architecture" style="max-width:100%; border-radius:10px; margin:16px 0;" />
+    <ul>
+      <li>以 FMCW 毫米波雷達實作非接觸式心率與呼吸頻率量測系統。</li>
+      <li>支援靜止與輕度運動狀態下之生命徵象感測與即時波形顯示。</li>
+      <li>整合訊號處理、系統控制與使用者介面，完成端到端系統實作。</li>
+    </ul>
+  </div>
+
+  <div class="en">
+    <h3>Undergraduate Project | FMCW Radar-Based Vital Sign Monitoring System</h3>
+    <p class="meta">Millimeter-Wave Radar | Vital Sign Sensing | System Integration</p>
+    <img src="images/fmcw_radar_architecture.png" alt="FMCW Radar Architecture" style="max-width:100%; border-radius:10px; margin:16px 0;" />
+    <ul>
+      <li>Implemented a non-contact FMCW radar-based system for heart rate and respiration monitoring.</li>
+      <li>Supported vital sign sensing under static and mild-motion conditions.</li>
+      <li>Delivered an end-to-end system integrating sensing, signal processing, and visualization.</li>
     </ul>
   </div>
 </section>
@@ -191,52 +251,25 @@
   <h2>Education & Academic Background</h2>
   <div class="zh">
     <ul>
-      <li>
-        <strong>國立臺北科技大學（NTUT）電子工程研究所｜碩士</strong>（2022 – 2024）
+      <li><strong>國立臺北科技大學（NTUT）電子工程研究所｜碩士</strong>（2022 – 2024）
         <ul>
-          <li>研究方向：Wireless-Powered Mobile Edge Computing (MEC)、通訊與計算資源最佳化。</li>
-          <li>碩士論文：<em>Resource Allocation for Wireless-Powered Video Visual Processing MEC Networks</em>。</li>
-          <li>以深度強化學習（Deep Reinforcement Learning）建構決策模型，
-              聯合最佳化任務卸載、頻寬配置與計算資源分配。</li>
-          <li>模擬結果顯示，在相同能量限制下，系統 PSNR 較基準方法提升約 1.46 dB，
-              有效改善視覺處理品質與系統穩定度。</li>
-          <li>主要技能與工具：Python、NumPy、PyTorch、DRL（DDQN）、系統模擬與效能分析。</li>
+          <li>研究主軸：行動邊緣計算（MEC）與影音處理系統之資源最佳化。</li>
+          <li>論文研究重點與系統架構詳見 <em>Academic Projects & Research Highlights</em>。</li>
         </ul>
       </li>
-      <li>
-        <strong>國立宜蘭大學（NIU）電機工程學系｜學士</strong>（2018 – 2022）
-        <ul>
-          <li>主修領域：電路學、電子學、數位系統、半導體元件與製程概論。</li>
-          <li>專題製作：以影像處理與嵌入式系統為核心之應用專題（含系統整合與測試）。</li>
-          <li>曾擔任系學會公關與營隊副召，負責活動規劃、對外溝通與跨組協調。</li>
-          <li>培養良好的專案管理、溝通協調與團隊合作能力。</li>
-        </ul>
-      </li>
+      <li><strong>國立宜蘭大學（NIU）電機工程學系｜學士</strong>（2018 – 2022）</li>
     </ul>
   </div>
 
   <div class="en">
     <ul>
-      <li>
-        <strong>M.S. in Electronic Engineering, National Taipei University of Technology (NTUT)</strong> (2022 – 2024)
+      <li><strong>M.S. in Electronic Engineering, National Taipei University of Technology (NTUT)</strong> (2022 – 2024)
         <ul>
-          <li>Research focus: Wireless-powered Mobile Edge Computing (MEC) and joint resource optimization.</li>
-          <li>Thesis: <em>Resource Allocation for Wireless-Powered Video Visual Processing MEC Networks</em>.</li>
-          <li>Developed deep reinforcement learning–based decision models for task offloading,
-              bandwidth allocation, and computing resource management.</li>
-          <li>Achieved approximately 1.46 dB PSNR improvement over baseline methods under identical energy constraints.</li>
-          <li>Key skills: Python, NumPy, PyTorch, Deep Reinforcement Learning (DDQN), system-level simulation.</li>
+          <li>Focus on MEC-based video processing and system-level resource optimization.</li>
+          <li>Detailed research highlights are presented in the Academic Projects section.</li>
         </ul>
       </li>
-      <li>
-        <strong>B.S. in Electrical Engineering, National Ilan University (NIU)</strong> (2018 – 2022)
-        <ul>
-          <li>Core coursework: Circuit Theory, Electronics, Digital Systems, Semiconductor Devices and Processes.</li>
-          <li>Senior project involving image processing and embedded system integration.</li>
-          <li>Served as a student association public relations officer and camp vice leader,
-              gaining experience in coordination, communication, and project execution.</li>
-        </ul>
-      </li>
+      <li><strong>B.S. in Electrical Engineering, National Ilan University (NIU)</strong> (2018 – 2022)</li>
     </ul>
   </div>
 </section>
