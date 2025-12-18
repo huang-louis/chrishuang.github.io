@@ -4,18 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chris Huang | Layout Verification Engineer</title>
-  <meta name="description" content="Chris Huang, Layout Verification Engineer specializing in LVS, RC Extraction, Parasitic Analysis, and Semiconductor Design Verification." />
 
-  <!-- GoatCounter: simple & privacy-friendly analytics -->
+  <!-- GoatCounter -->
   <script data-goatcounter="https://chrishuang.goatcounter.com/count"
           async src="https://gc.zgo.at/count.js"></script>
 
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       margin: 0;
       line-height: 1.7;
-      background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+      background: linear-gradient(180deg, #f8fafc, #eef2f7);
       color: #0f172a;
     }
 
@@ -26,65 +25,45 @@
     }
 
     header {
+      position: relative;
+      overflow: hidden;
       background: radial-gradient(circle at top left, #1e293b, #020617);
-      color: #ffffff;
+      color: white;
       border-bottom-left-radius: 24px;
       border-bottom-right-radius: 24px;
     }
 
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.2em;
-      letter-spacing: 0.5px;
+    header::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: radial-gradient(
+        circle at var(--x,50%) var(--y,50%),
+        rgba(255,255,255,0.12),
+        transparent 40%
+      );
+      animation: glowPulse 6s ease-in-out infinite;
+      pointer-events: none;
     }
 
-    h2 {
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 10px;
-      margin-bottom: 24px;
-      font-size: 1.6rem;
+    @keyframes glowPulse {
+      0%,100% { opacity: .6; }
+      50% { opacity: 1; }
     }
 
-    h3 {
-      margin-bottom: 6px;
-      font-size: 1.2rem;
-    }
+    h1 { font-size: 2.4rem; margin-bottom: .2em; }
+    h2 { border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; }
 
     section {
-      background: #ffffff;
+      background: white;
       margin-top: 24px;
       border-radius: 18px;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 20px 40px rgba(15,23,42,.08);
     }
 
-    ul {
-      padding-left: 22px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .meta {
-      color: #64748b;
-      font-size: 0.95rem;
-    }
-
-    .tag {
-      display: inline-block;
-      background: linear-gradient(135deg, #e5e7eb, #f8fafc);
-      padding: 6px 12px;
-      margin: 6px 8px 6px 0;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      border: 1px solid #e2e8f0;
-    }
-
-    /* language switch */
     .lang-switch {
       display: flex;
       justify-content: flex-end;
-      align-items: center;
       gap: 12px;
       margin-bottom: 20px;
     }
@@ -92,341 +71,140 @@
     .lang-switch button {
       padding: 6px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.4);
-      background: rgba(255,255,255,0.1);
-      color: #ffffff;
-      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,.4);
+      background: rgba(255,255,255,.1);
+      color: white;
       cursor: pointer;
-      transition: all 0.25s ease;
-      backdrop-filter: blur(6px);
-    }
-
-    .lang-switch button:hover {
-      background: rgba(255,255,255,0.25);
-      transform: translateY(-1px);
+      transition: .25s;
     }
 
     .lang-switch button.active {
-      background: #ffffff;
+      background: white;
       color: #020617;
       font-weight: 600;
     }
 
-    footer {
-      text-align: center;
-      color: #64748b;
-      font-size: 0.85rem;
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: .8s;
     }
 
-    /* image styles */
-    .profile {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-
-    .avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid rgba(255,255,255,0.6);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 18px;
+    .fade-in.show {
+      opacity: 1;
+      transform: none;
     }
 
     .gallery img {
       width: 100%;
       border-radius: 14px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+      transition: .3s;
+      box-shadow: 0 10px 24px rgba(0,0,0,.12);
     }
 
-    .caption {
-      font-size: 0.85rem;
-      color: #475569;
-      margin-top: 6px;
+    .gallery img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 18px rgba(99,102,241,.6);
+    }
+
+    .pet {
+      position: fixed;
+      bottom: 12px;
+      left: -40px;
+      font-size: 28px;
+      animation: walk 25s linear infinite;
+      opacity: .7;
+      cursor: default;
+      z-index: 10;
+    }
+
+    .pet.pause { animation-play-state: paused; }
+
+    @keyframes walk {
+      to { transform: translateX(calc(100vw + 80px)); }
+    }
+
+    /* dark mode */
+    body.dark {
+      background: #020617;
+      color: #e5e7eb;
+    }
+
+    body.dark section { background: #020617; }
+    body.dark header {
+      background: radial-gradient(circle at top left, #020617, #000);
     }
 
     .en { display: none; }
   </style>
-
-  <script>
-    function switchLang(lang) {
-      document.querySelectorAll('.zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
-      document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
-
-      document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
-      document.getElementById(lang + '-btn').classList.add('active');
-    }
-  </script>
 </head>
+
 <body>
 
 <header>
   <div class="lang-switch">
     <button id="zh-btn" onclick="switchLang('zh')">中文</button>
     <button id="en-btn" onclick="switchLang('en')">English</button>
+    <button onclick="toggleTheme()">🌙</button>
   </div>
 
-  <!-- Headshot / Avatar -->
-  <div class="profile zh">
-    <!-- 放置你的大頭貼：images/profile.jpg -->
-    <img src="images/profile.jpg" alt="Chris Huang" class="avatar" />
-    <div>
-      <h1>黃薪瑋 Chris Huang</h1>
-      <p>佈局驗證工程師｜半導體研發</p>
-      <p>Email: my890119@gmail.com </p>
-    </div>
-  </div>
-
-  <div class="profile en">
-    <img src="images/profile.jpg" alt="Chris Huang" class="avatar" />
-    <div>
-      <h1>Chris Huang</h1>
-      <p>Layout Verification Engineer | Semiconductor Industry</p>
-      <p>Email: my890119@gmail.com </p>
-    </div>
-  </div>
+  <h1>Chris Huang</h1>
+  <p>Layout Verification Engineer｜Semiconductor R&D</p>
 </header>
 
-<section>
-  <h2>Professional Summary</h2>
-  <div class="zh">
-    <p>
-      我是黃薪瑋（Chris Huang），現任世界先進積體電路股份有限公司（VIS）之佈局驗證工程師，
-      專注於電路佈局驗證（Layout Verification）、寄生參數提取（RC Extraction）與寄生效應分析（Parasitic Analysis）。
-      熟悉先進製程下之實務驗證流程，能依據 Technology Development（TD）文件與客戶規範，
-      提供高準確度且具一致性的驗證成果。
-    </p>
-    <p>
-      在工具層面，我具備 Calibre LVS、PVS LVS、StarRC、QuantusRC 與 CalibreRC (xRC) 的實務經驗，
-      能有效支援訊號完整性（Signal Integrity）與時序分析（Timing Analysis）。
-      除了執行驗證工作，我亦投入流程優化與自動化建置，
-      曾於到職一年內協助部門完成 StarRC 自動化流程導入，
-      顯著降低人工作業成本並提升 RC 建置效率，
-      並以此成果參與公司 RD 研發競賽，榮獲新人獎（Rookie Award）。
-    </p>
-    <p>
-      在學術與職涯歷程中，我始終保持細心、嚴謹且主動學習的態度。
-      大學期間曾擔任系學會公關及營隊副召，培養良好的跨單位溝通、協調與專案執行能力，
-      也讓我深刻理解團隊合作在大型工程專案中的重要性。
-      未來我期望持續在半導體製程與實體驗證領域深耕，
-      朝向 Layout Verification Methodology / Technical Lead 方向發展，
-      為團隊與公司創造可長期累積的工程價值。
-    </p>
-  </div>
-  <div class="en">
-    <p>
-      I am Chris Huang, a Layout Verification Engineer at Vanguard International Semiconductor Corporation (VIS),
-      specializing in layout verification, parasitic RC extraction, and parasitic effect analysis.
-      I work closely with Technology Development (TD) teams and customers to ensure accurate
-      layout-to-schematic consistency and device correctness for semiconductor designs.
-    </p>
-    <p>
-      I am proficient in industry-standard EDA tools including Calibre LVS, PVS LVS, StarRC,
-      QuantusRC, and CalibreRC (xRC), enabling reliable signal integrity and timing analysis.
-      Beyond execution-level tasks, I actively contribute to workflow optimization and automation.
-      Within my first year, I helped complete the deployment of an automated StarRC extraction flow,
-      significantly improving efficiency and consistency, and was recognized with a Rookie Award
-      in the internal RD Innovation Competition.
-    </p>
-    <p>
-      With a proactive and detail-oriented mindset, combined with strong communication and teamwork skills
-      developed through leadership roles during my academic years, I aim to continue advancing in the
-      semiconductor field and grow toward a methodology- or technical leadership-oriented role.
-    </p>
-  </div>
-</section>
-
-<section>
-  <h2>Work Experience</h2>
-  <div class="zh">
-    <h3>世界先進積體電路股份有限公司</h3>
-    <p class="meta">佈局驗證工程師 ｜ 2024/10 – 至今 ｜ 新竹</p>
-    <ul>
-      <li>依據 TD 與客戶規格執行 LVS 驗證（Calibre / PVS）。</li>
-      <li>使用 StarRC、QuantusRC、CalibreRC 進行寄生 RC 提取。</li>
-      <li>分析寄生效應對訊號完整性與時序的影響。</li>
-    </ul>
-  </div>
-  <div class="en">
-    <h3>Vanguard International Semiconductor Corporation</h3>
-    <p class="meta">Layout Verification Engineer ｜ Oct 2024 – Present</p>
-    <ul>
-      <li>LVS verification based on TD and customer requirements.</li>
-      <li>Parasitic RC extraction using StarRC, QuantusRC, and CalibreRC.</li>
-      <li>Signal integrity and timing impact analysis.</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <h2>Key Projects & Awards</h2>
-
-  <div class="zh">
-    <img src="images/award_vis_new_star.jpg" alt="VIS New Star Award" style="max-width:420px; border-radius:10px; margin:0 0 16px 0;" />
-    <h3>RC Extraction Automation Workflow</h3>
-    <p class="meta">Python Automation｜EDA Flow Optimization｜Methodology Development</p>
-    <ul>
-      <li>主導設計並實作以 Python 為核心之 RC Extraction 自動化框架，支援多製程、多專案情境下之寄生參數建置需求，建立可重複使用且具延展性的流程基礎。</li>
-      <li>於流程前段自動擷取設計與製程相關資料，進行欄位對齊、單位轉換與一致化處理，形成結構化且可版本控管之標準化資料模型，作為後續流程的單一可信來源（Single Source of Truth）。</li>
-      <li>依據 StarRC、QuantusRC 與 CalibreRC 等 EDA 工具之 technology file 規範，由 Python 程式自動生成對應設定檔，系統性消除人工撰寫與跨工具轉換所衍生之設定誤差。</li>
-      <li>該自動化流程顯著提升 RC 建置效率、結果一致性與方法學穩定度，並有效降低專案交付風險與人為操作依賴。</li>
-    </ul>
-    <p class="meta"><strong>Impact Summary</strong></p>
-<ul>
-  <li><strong>RC 建置時間 ↓ 60%</strong></li>
-  <li><strong>文件錯誤率 ↓ 99%</strong></li>
-</ul>
-
-    <h3>VIS R&D Competition – New Star Award</h3>
-<p class="meta">Q4 2025｜Vanguard International Semiconductor Corporation</p>
-<ul>
-  <li>本獎項係基於「RC Extraction Automation Workflow」專案之實質工程成果所獲得，該自動化流程被評選為對部門流程效率與方法學成熟度具顯著貢獻之研發項目。</li>
-  <li>透過系統性自動化設計，成功改善 RC 建置效率與品質穩定度，獲公司正式肯定並頒發 New Star Award。</li>
-</ul>
-  </div>
-
-  <div class="en">
-    <img src="images/award_vis_new_star.jpg" alt="VIS New Star Award" style="max-width:420px; border-radius:10px; margin:0 0 16px 0;" />
-    <h3>RC Extraction Automation Workflow</h3>
-    <p class="meta">Python Automation | EDA Flow Optimization | Methodology Development</p>
-    <ul>
-      <li>Designed and implemented a Python-based automation framework for RC extraction across multiple processes and projects.</li>
-      <li>Automatically collected and standardized design and process data, including field alignment and unit normalization.</li>
-      <li>Generated EDA-compliant technology files for StarRC, QuantusRC, and CalibreRC directly from standardized datasets.</li>
-      <li>Reduced overall RC build turnaround time by approximately <strong>60%</strong> through end-to-end automation.</li>
-      <li>Increased technology file and configuration accuracy to over <strong>99%</strong>, significantly minimizing manual setup errors and rework.</li>
-      <li>Established a scalable and maintainable methodology that improves result consistency across processes and projects.</li>
-    </ul>
-
-    <h3>VIS R&D Competition – New Star Award</h3>
-    <p class="meta">Q4 2025 | Vanguard International Semiconductor Corporation</p>
-    <img src="images/award_vis_new_star.jpg" alt="VIS New Star Award" style="max-width:420px; border-radius:10px; margin:16px 0;" />
-    <ul>
-      <li>Recognized for tangible contributions to RC extraction automation and methodology enhancement.</li>
-      <li>Awarded the New Star Award in the internal VIS R&D Innovation Competition.</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <h2>Academic Projects & Research Highlights</h2>
-
-  <!-- ===== Research Highlight: Master Thesis ===== -->
-  <div class="zh">
-    <h3>碩士論文｜Enhancing Video Processing Quality in MEC Networks via Deep Reinforcement Learning-Assisted Offloading </h3>
-    <p class="meta">系統最佳化｜深度強化學習｜跨層資源配置</p>
-    <img src="images/thesis_mec_architecture.png" alt="MEC System Architecture" style="max-width:100%; border-radius:10px; margin:16px 0;" />
-    <ul>
-      <li>建構整合型 MEC 系統模型，聯合最佳化通道配置、計算資源與影片編碼參數。</li>
-      <li>提出 DQN 與 Double DQN 決策架構，分別處理任務卸載與通道分配問題。</li>
-      <li>透過品質感知損失函數與後處理機制，兼顧影片品質與系統穩定性。</li>
-      <li>相較對照方法，影片品質最高提升 <strong>1.46 dB PSNR</strong>，並消除通道資源飢餓現象。</li>
-    </ul>
-  </div>
-
-  <div class="en">
-    <h3>Master Thesis | Enhancing Video Processing Quality in MEC Networks via Deep Reinforcement Learning-Assisted Offloading</h3>
-    <p class="meta">System Optimization | Deep Reinforcement Learning | Cross-layer Resource Allocation</p>
-    <img src="images/thesis_mec_architecture.png" alt="MEC System Architecture" style="max-width:100%; border-radius:10px; margin:16px 0;" />
-    <ul>
-      <li>Developed an integrated MEC system model for joint optimization of communication, computation, and video encoding.</li>
-      <li>Applied DQN and Double DQN for task offloading and channel allocation decisions.</li>
-      <li>Designed quality-aware objective functions to balance latency and video quality.</li>
-      <li>Achieved up to <strong>1.46 dB PSNR improvement</strong> while eliminating channel starvation.</li>
-    </ul>
-  </div>
-
-  <hr style="margin:32px 0" />
-
-  <!-- ===== Academic Project: FMCW Radar ===== -->
-  <div class="zh">
-    <h3>學士專題｜基於 FMCW 雷達之生命徵象量測系統</h3>
-    <p class="meta">毫米波雷達｜生命徵象感測｜系統整合</p>
-    <img src="images/fmcw_radar_architecture.png" alt="FMCW Radar Architecture" style="max-width:100%; border-radius:10px; margin:16px 0;" />
-    <ul>
-      <li>以 FMCW 毫米波雷達實作非接觸式心率與呼吸頻率量測系統。</li>
-      <li>支援靜止與輕度運動狀態下之生命徵象感測與即時波形顯示。</li>
-      <li>整合訊號處理、系統控制與使用者介面，完成端到端系統實作。</li>
-    </ul>
-  </div>
-
-  <div class="en">
-    <h3>Undergraduate Project | FMCW Radar-Based Vital Sign Monitoring System</h3>
-    <p class="meta">Millimeter-Wave Radar | Vital Sign Sensing | System Integration</p>
-    <img src="images/fmcw_radar_architecture.png" alt="FMCW Radar Architecture" style="max-width:100%; border-radius:10px; margin:16px 0;" />
-    <ul>
-      <li>Implemented a non-contact FMCW radar-based system for heart rate and respiration monitoring.</li>
-      <li>Supported vital sign sensing under static and mild-motion conditions.</li>
-      <li>Delivered an end-to-end system integrating sensing, signal processing, and visualization.</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <h2>Education & Academic Background</h2>
-  <div class="zh">
-    <ul>
-      <li><strong>國立臺北科技大學（NTUT）電子工程研究所｜碩士</strong>（2022 – 2024）
-        <ul>
-          <li>研究主軸：行動邊緣計算（MEC）與影音處理系統之資源最佳化。</li>
-          <li>論文研究重點與系統架構詳見 <em>Academic Projects & Research Highlights</em>。</li>
-        </ul>
-      </li>
-      <li><strong>國立宜蘭大學（NIU）電機工程學系｜學士</strong>（2018 – 2022）</li>
-    </ul>
-  </div>
-
-  <div class="en">
-    <ul>
-      <li><strong>M.S. in Electronic Engineering, National Taipei University of Technology (NTUT)</strong> (2022 – 2024)
-        <ul>
-          <li>Focus on MEC-based video processing and system-level resource optimization.</li>
-          <li>Detailed research highlights are presented in the Academic Projects section.</li>
-        </ul>
-      </li>
-      <li><strong>B.S. in Electrical Engineering, National Ilan University (NIU)</strong> (2018 – 2022)</li>
-    </ul>
-  </div>
-</section>
-
-<section>
-  <h2>Technical Skills</h2>
-  <div>
-    <span class="tag">Calibre LVS</span>
-    <span class="tag">PVS LVS</span>
-    <span class="tag">StarRC</span>
-    <span class="tag">QuantusRC</span>
-    <span class="tag">CalibreRC (xRC)</span>
-    <span class="tag">Python</span>
-    <span class="tag">Verilog-A</span>
-    <span class="tag">HTML / CSS / JavaScript</span>
-  </div>
+<section class="fade-in">
+  <h2 class="zh">關於我</h2>
+  <h2 class="en">About Me</h2>
+  <p class="zh">半導體佈局驗證工程師，專注於 RC Extraction 與方法學自動化。</p>
+  <p class="en">Layout Verification Engineer focusing on RC extraction and methodology automation.</p>
 </section>
 
 <footer>
-  <p>© 2025 Chris Huang. All rights reserved.</p>
+  <p>© 2025 Chris Huang</p>
 
   <!-- Flag Counter -->
-  <div style="margin-top:14px;">
-    <a href="https://info.flagcounter.com/t4UX" target="_blank">
-      <img src="https://s01.flagcounter.com/count2/t4UX/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/"
-           alt="Flag Counter"
-           style="max-width:100%; height:auto; opacity:0.9;">
-    </a>
-  </div>
+  <a href="https://info.flagcounter.com/t4UX" target="_blank">
+    <img src="https://s01.flagcounter.com/count2/t4UX/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/"
+         alt="Flag Counter">
+  </a>
 </footer>
 
+<div class="pet">🐱</div>
+
 <script>
-  switchLang('zh');
+  /* header glow */
+  const header = document.querySelector("header");
+  header.addEventListener("mousemove", e => {
+    const r = header.getBoundingClientRect();
+    header.style.setProperty("--x", ((e.clientX - r.left) / r.width) * 100 + "%");
+    header.style.setProperty("--y", ((e.clientY - r.top) / r.height) * 100 + "%");
+  });
+
+  /* pet pause */
+  const pet = document.querySelector(".pet");
+  pet.onmouseenter = () => pet.classList.add("pause");
+  pet.onmouseleave = () => pet.classList.remove("pause");
+
+  /* language switch */
+  function switchLang(lang) {
+    document.querySelectorAll(".zh").forEach(e => e.style.display = lang==="zh"?"block":"none");
+    document.querySelectorAll(".en").forEach(e => e.style.display = lang==="en"?"block":"none");
+    document.querySelectorAll(".lang-switch button").forEach(b => b.classList.remove("active"));
+    document.getElementById(lang+"-btn").classList.add("active");
+  }
+
+  /* dark mode */
+  function toggleTheme() {
+    document.body.classList.toggle("dark");
+  }
+
+  /* scroll animation */
+  const observer = new IntersectionObserver(es =>
+    es.forEach(e => e.isIntersecting && e.target.classList.add("show"))
+  );
+  document.querySelectorAll(".fade-in").forEach(e => observer.observe(e));
+
+  switchLang("zh");
 </script>
 
 </body>
