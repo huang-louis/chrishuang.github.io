@@ -142,6 +142,12 @@
       margin-top: 18px;
     }
 
+    .gallery figure {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
     .gallery img {
       width: 100%;
       height: 220px;
@@ -149,6 +155,51 @@
       border-radius: 14px;
       box-shadow: 0 10px 24px rgba(0,0,0,0.12);
       transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: pointer;
+    }
+
+    .gallery figure:hover img {
+      transform: scale(1.06);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+    }
+
+    .gallery figcaption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 14px;
+      font-size: 0.85rem;
+      color: #f8fafc;
+      background: linear-gradient(to top, rgba(2,6,23,0.75), rgba(2,6,23,0));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery figure:hover figcaption {
+      opacity: 1;
+    }
+
+    /* ===== Lightbox ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(2,6,23,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    }
+
+    .lightbox.show {
+      display: flex;
     }
 
     .gallery img:hover {
@@ -622,14 +673,43 @@
   </div>
 
   <div class="gallery">
-    <img src="images/life_1.jpg" alt="Life moment 1" />
-    <img src="images/life_2.jpg" alt="Life moment 2" />
-    <img src="images/life_3.jpg" alt="Life moment 3" />
-    <img src="images/life_4.jpg" alt="Life moment 4" />
-    <img src="images/life_5.jpg" alt="Life moment 5" />
-    <img src="images/life_6.jpg" alt="Life moment 6" />
-    <img src="images/life_7.jpg" alt="Life moment 7" />
-    <img src="images/life_8.jpg" alt="Life moment 8" />
+    <figure onclick="openLightbox(this)">
+      <img src="images/life_1.jpg" alt="Conference presentation" />
+      <figcaption>Academic conference & presentations</figcaption>
+    </figure>
+    <figure onclick="openLightbox(this)">
+      <img src="images/life_2.jpg" alt="Competition moment" />
+      <figcaption>Project competitions & teamwork</figcaption>
+    </figure>
+    <figure onclick="openLightbox(this)">
+      <img src="images/life_3.jpg" alt="Lab work" />
+      <figcaption>Research and lab activities</figcaption>
+    </figure>
+    <figure onclick="openLightbox(this)">
+      <img src="images/life_4.jpg" alt="Daily life" />
+      <figcaption>Everyday moments</figcaption>
+    </figure>
+    <figure onclick="openLightbox(this)">
+      <img src="images/life_5.jpg" alt="Team activity" />
+      <figcaption>Team collaboration</figcaption>
+    </figure>
+    <figure onclick="openLightbox(this)">
+      <img src="images/life_6.jpg" alt="Travel" />
+      <figcaption>Travel & exploration</figcaption>
+    </figure>
+    <figure onclick="openLightbox(this)">
+      <img src="images/life_7.jpg" alt="Presentation" />
+      <figcaption>Technical sharing sessions</figcaption>
+    </figure>
+    <figure onclick="openLightbox(this)">
+      <img src="images/life_8.jpg" alt="Life snapshot" />
+      <figcaption>Life snapshots</figcaption>
+    </figure>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Expanded view" />
   </div>
 </section>
 
@@ -660,6 +740,17 @@
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  function openLightbox(figure) {
+    const img = figure.querySelector('img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = img.src;
+    lightbox.classList.add('show');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('show');
+  }
 </script>
 
 </body>
